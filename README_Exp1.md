@@ -26,30 +26,24 @@ PART A: Performance Analysis Using Type-1 Hypervisor – Proxmox VE
 
 Hostname and OS Verification:
 Command: hostnamectl
-![Type-1 Hostname Output](type1_hostname.png)
 
 CPU Configuration Verification:
 Command: lscpu
-![Type-1 CPU Configuration](type1_lscpu.png)
 
 Memory Configuration Verification:
 Command: free -h
-![Type-1 Memory Output](type1_free.png)
 
 Disk Storage Verification:
 Command: df -h
-![Type-1 Disk Storage](type1_df.png)
 
 Real-Time System Monitoring:
 Command: top
-![Type-1 Resource Utilization](type1_top.png)
 
 3. CPU Performance Benchmark (Type-1)
 
 Sysbench Execution Command:
 sysbench cpu --cpu-max-prime=20000 run
 
-![Type-1 Sysbench Result](cpu_analysis.jpg)
 
 4. Observation Table (Type-1 Hypervisor)
 
@@ -105,30 +99,24 @@ PART B: Performance Analysis Using Type-2 Hypervisor – VMware Workstation
 
 Hostname and OS Verification:
 Command: hostnamectl
-![Type-2 Hostname Output](type2_hostname.png)
 
 CPU Configuration Verification:
 Command: lscpu
-![Type-2 CPU Details](type2_lscpu.png)
 
 Memory Configuration Verification:
 Command: free -h
-![Type-2 Memory Details](type2_free.png)
 
 Disk Storage Verification:
 Command: df -h
-![Type-2 Disk Details](type2_df.png)
 
 Real-Time System Monitoring:
 Command: top
-![Type-2 Process Monitor](type2_top.png)
 
 3. CPU Performance Benchmark (Type-2)
 
 Sysbench Execution Command:
 sysbench cpu --cpu-max-prime=20000 run
 
-![Type-2 Sysbench Result](Sysbench_cpu.png)
 
 4. Observation Table (Type-2 Hypervisor)
 
