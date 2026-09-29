@@ -21,7 +21,6 @@ Performance profiling was conducted using the **Sysbench CPU benchmark** with pr
 
 ---
 
-
 ## Empirical Benchmark Summary
 
 The benchmark was executed using **Sysbench CPU** with a **20,000 prime-number upper limit** over a **10-second measurement window**.
@@ -37,10 +36,6 @@ The benchmark was executed using **Sysbench CPU** with a **20,000 prime-number u
 ### Key Observation
 
 The Type-2 VMware Workstation environment processed **419 more compute events** during the benchmark window, resulting in approximately **2.44% higher throughput** than the Type-1 Proxmox VE environment.
-
-At the same time, VMware recorded lower mean, 95th-percentile, and maximum latency values in this particular benchmark.
-
----
 
 ### 1. Type-1 Hypervisor Architecture (Bare-Metal / Hardware-Assisted KVM)
 
@@ -67,6 +62,7 @@ flowchart TD
 
     HW --> Type1
     Type1 --> Guest1
+
 +-----------------------------------------------------------------------+
 |              Ubuntu Guest Virtual Machine (CC-Experiment1-type1)      |
 +-----------------------------------------------------------------------+
@@ -75,6 +71,10 @@ flowchart TD
 |             Physical Server Hardware (Bare-Metal Intel VT-x)         |
 +-----------------------------------------------------------------------+
 
+
+### Block 3 — Type-2 Architecture
+
+```markdown
 ### 2. Type-2 Hypervisor Architecture (Hosted / Virtual Machine Monitor)
 
 In the Type-2 model, VMware Workstation runs as an application process inside a host operating system. Hardware access involves a multi-tier interception path: guest instructions execute in virtualization containers that translate through the VMware Virtual Machine Monitor (VMM), route through host OS system calls, and depend on the host operating system kernel thread scheduler.
@@ -115,6 +115,10 @@ flowchart TD
 |              Physical Hardware (Client Desktop Processor)             |
 +-----------------------------------------------------------------------+
 
+
+### Block 4 — Virtual Machine Specifications
+
+```markdown
 ## Virtual Machine Specifications
 
 Hardware allocations across both test environments were configured to maintain a standardized baseline:
@@ -182,6 +186,10 @@ sysbench --version
 # Run compute stress test (Max Prime = 20,000, Single Thread Execution)
 sysbench cpu --cpu-max-prime=20000 run
 
+
+### Block 6 — Empirical Benchmark Results & Verification
+
+```markdown
 ## Empirical Benchmark Results & Verification
 
 ### 1. Type-1 Bare-Metal Execution (Proxmox VE)
@@ -228,12 +236,13 @@ Higher values indicate superior CPU instruction retirement rates per unit time.
 
 <img width="790" height="490" alt="WhatsApp Image 2026-09-29 at 12 51 00 PM" src="https://github.com/user-attachments/assets/3d4ab4a8-9b3e-4b21-a404-7db853cf0b6a" />
 
-
 ### 2. Latency Spectrum Analysis (Milliseconds)
 
 Lower latency values indicate lower task queue scheduling delays.
 
 <img width="989" height="590" alt="WhatsApp Image 2026-09-29 at 12 51 37 PM" src="https://github.com/user-attachments/assets/0c763509-077a-46bb-9064-df8b11a36ca5" />
+
+---
 
 ## Technical Discussion & Hardware Disparity Analysis
 
@@ -276,3 +285,7 @@ While Type-2 hypervisors provide fast configuration workflows and desktop conven
 ---
 
 
+
+At the same time, VMware recorded lower mean, 95th-percentile, and maximum latency values in this particular benchmark.
+
+---
