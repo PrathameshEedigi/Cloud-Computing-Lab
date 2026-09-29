@@ -22,6 +22,7 @@ The objective of this experiment is to evaluate and compare the computational pe
 ## 3. Empirical Results & Console Telemetry
 
 ### Type-1 Hypervisor (Proxmox VE Web Console)
+<img width="1597" height="1042" alt="image" src="https://github.com/user-attachments/assets/a4f8dfda-4b85-4e27-ab0b-8644361b35cc" />
 
 
 ### Type-2 Hypervisor (VMware Workstation Terminal)
@@ -43,3 +44,29 @@ The objective of this experiment is to evaluate and compare the computational pe
 | **Maximum Latency Spike** | 2.78 ms | 1.11 ms | -1.67 ms | -60.07% |
 
 ---
+
+## 5. Performance Visualizations
+
+### 1. Computational Throughput (Events per Second)
+<img width="2400" height="1500" alt="throughput_comparison" src="https://github.com/user-attachments/assets/bf5f9b19-5ed1-47e2-ba2e-fae5bb21b7b0" />
+
+
+---
+
+### 2. Latency Spectrum Analysis (Milliseconds)
+<img width="2700" height="1650" alt="latency_comparison" src="https://github.com/user-attachments/assets/b575aaf7-8da1-4ce5-8227-a694228f1ffe" />
+
+
+---
+
+## 6. Technical Analysis & Findings
+
+1. **Throughput Comparison:**
+   VMware Workstation achieved **1,758.60 events/sec**, marginally outpacing Proxmox VE (**1,716.69 events/sec**) by **+2.44%**. While Type-1 hypervisors theoretically offer lower virtualization overhead, this difference is primarily attributed to physical host CPU hardware differences: the desktop processor hosting VMware operated at a higher single-core dynamic frequency boost compared to the institutional server node powering the Proxmox installation. Additionally, VMware was provisioned with 8 GB of RAM versus 2 GB on Proxmox, reducing system memory pressure.
+
+2. **Latency Distribution & Scheduling Stability:**
+   Both hypervisors maintained efficient sub-millisecond execution, averaging **0.58 ms** on Proxmox VE and **0.57 ms** on VMware. However, Proxmox VE recorded a maximum tail latency spike of **2.78 ms** compared to **1.11 ms** on VMware. This tail latency on the Proxmox instance reflects concurrent multi-tenant I/O contention on the shared institutional lab server (`admin1-HP-Pro-Tower-280-G9`), whereas VMware executed on a dedicated host machine.
+
+3. **Engineering Conclusion:**
+   - **Type-1 (Proxmox VE / KVM)** remains the preferred architecture for data centers and production clouds due to bare-metal hardware isolation, lack of a general-purpose host OS attack surface, and scalable multi-tenant orchestration.
+   - **Type-2 (VMware Workstation)** is ideal for local desktop prototyping, application sandboxing, and developer test environments where immediate host OS integration is prioritized over bare-metal determinism.
