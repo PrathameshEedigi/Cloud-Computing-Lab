@@ -30,27 +30,6 @@ The objective of this experiment is to evaluate and compare the computational pe
 
 ---
 
-### 3. Resource Efficiency: Throughput per GB of RAM
-<img width="2100" height="1500" alt="resource_efficiency_comparison" src="https://github.com/user-attachments/assets/8f5d49df-0165-47af-8f51-098b1826fdc7" />
-
-
-*Figure 3: Demonstrates compute efficiency normalized by memory footprint. Proxmox VE achieved ~3.9x higher throughput per allocated gigabyte.*
-
----
-
-### 4. Latency Spread & Scheduling Jitter
-<img width="2400" height="1500" alt="latency_spread_analysis" src="https://github.com/user-attachments/assets/970cd6c0-abe2-4e8a-8ace-d2301c161db1" />
-
-
-*Figure 4: Latency range from minimum to 95th percentile with outlier tail spikes.*
-
----
-
-### 5. Cumulative Workload Execution Curve
-<img width="2400" height="1440" alt="cumulative_execution_timeline" src="https://github.com/user-attachments/assets/e365547d-a73e-482a-91cc-31f1fab2714c" />
-*Figure 5: 10-second linear execution progression showing stable instruction retirement across both platforms.*
-
-
 ---
 
 ## 4. Benchmark Performance Metrics
@@ -77,6 +56,27 @@ The objective of this experiment is to evaluate and compare the computational pe
 
 ### 2. Latency Spectrum Analysis (Milliseconds)
 <img width="2700" height="1650" alt="latency_comparison" src="https://github.com/user-attachments/assets/b575aaf7-8da1-4ce5-8227-a694228f1ffe" />
+
+
+### 3. Resource Efficiency: Throughput per GB of RAM
+<img width="2100" height="1500" alt="resource_efficiency_comparison" src="https://github.com/user-attachments/assets/8f5d49df-0165-47af-8f51-098b1826fdc7" />
+
+
+*Figure 3: Demonstrates compute efficiency normalized by memory footprint. Proxmox VE achieved ~3.9x higher throughput per allocated gigabyte.*
+
+---
+
+### 4. Latency Spread & Scheduling Jitter
+<img width="2400" height="1500" alt="latency_spread_analysis" src="https://github.com/user-attachments/assets/970cd6c0-abe2-4e8a-8ace-d2301c161db1" />
+
+
+*Figure 4: Latency range from minimum to 95th percentile with outlier tail spikes.*
+
+---
+
+### 5. Cumulative Workload Execution Curve
+<img width="2400" height="1440" alt="cumulative_execution_timeline" src="https://github.com/user-attachments/assets/e365547d-a73e-482a-91cc-31f1fab2714c" />
+*Figure 5: 10-second linear execution progression showing stable instruction retirement across both platforms.*
 
 
 ---
